@@ -34,3 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Seleccionas el elemento que quieres cambiar (ej. tu header)
+    const elementoAModificar = document.querySelector('.search'); 
+
+    // 2. Escuchas el evento de scroll en la ventana
+    window.addEventListener('scroll', () => {
+        
+        // Si el usuario baja más de 50 píxeles...
+        if (window.scrollY > 50) {
+            elementoAModificar.classList.add('scrolled'); // Se añade la clase
+        } else {
+            elementoAModificar.classList.remove('scrolled'); // Se quita al volver arriba
+        }
+    });
+});

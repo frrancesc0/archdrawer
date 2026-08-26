@@ -796,3 +796,105 @@ margin: 0 .4rem 0 0;
   background: var(--adrawer-magenta);
   color: var(--text-dark);
 }
+
+/* ==========================================
+   BIBLIOTECA DE CARACTERES
+   ========================================== */
+.char-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.search{
+  width: 100%; 
+  max-width: 400px; 
+  text-align: center;
+  border-bottom:1px solid var(--bg-panel-light);
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  position: fixed;
+  z-index: 2;
+  font-size: var(--fs-small);
+  }
+
+.search:hover, :focus{
+  border-color: var(--adrawer-cyan);
+  color: var(--adrawer-cyan);
+}
+
+.search.scrolled{
+  backdrop-filter: blur(.2rem);
+  border-radius: 2rem;
+  border: 0.5px solid var(--bg-panel-light);
+  transition: .2s;
+}
+
+.search.scrolled:hover, .search.scrolled:focus{
+  border-color: var(--adrawer-cyan);
+  color: var(--adrawer-cyan);
+}
+
+.char-card {
+    border-radius: 8px;
+    padding: 1.2rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.char-card:hover{
+    transform: translateY(-3px);
+}
+
+.char-card:hover .char-symbol{
+  color: var(--adrawer-cyan);
+  font-weight: 500;
+}
+
+.char-symbol {
+    color: var(--text-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-family: var(--font-main);
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.char-label {
+    color: var(--text-muted);
+    font-size: var(--fs-xs);
+    font-weight: 300;
+    text-align: center;
+    text-transform: lowercase;
+    transition: color 0.2s ease;
+}
+
+/* Efecto al Copiar */
+.char-card.copied {
+    border-color: var(--adrawer-green);
+    transform: scale(0.95);
+}
+
+.char-card.copied .char-symbol,
+.char-card.copied .char-label {
+    color: var(--adrawer-green);
+}
+
+/* Insignia para caracteres invisibles (como NBSP) */
+.invisible-badge {
+    font-size: 0.7rem;
+    color: var(--text-primary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}

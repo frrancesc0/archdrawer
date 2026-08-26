@@ -1,67 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>adrawer - longitud</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/tool.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adrawer | caracteres</title>
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../assets/images/adrawer-iso-01.png">
 </head>
-<body class="menu-open">
+<body>
+    
 
   <header class="tool-header">
-    <a href="../index.html" class="brand-link"><img src="../assets/images/adrawer-iso.svg" alt=""><span class="brand-highlight">longitud</span></a>
-  </header>
+    <a href="../index.html" class="brand-link"><img src="../assets/images/adrawer-iso.svg" alt=""><span class="brand-highlight">caracteres</span></a>
+    <!-- Buscador en tiempo real -->
+</header>
 
-  <main class="tool-container page-content" id="main-content">
-    <div class="calculator-box entry-animator">
-      
-      <div class="calc-group">
-        <label class="calc-label"></label>
-        <div class="input-row">
-          <div class="unit-pill">
-            <select id="unit-from" class="unit-select">
-              <option value="m" selected>m</option>
-              <option value="cm">cm</option>
-              <option value="mm">mm</option>
-              <option value="km">km</option>
-              <option value="in">in</option>
-              <option value="ft">ft</option>
-              <option value="yd">yd</option>
-            </select>
-          </div>
-          <input type="number" id="length-from" class="input-card input-large" placeholder="1" value="1" step="any">
+<div class="input-row" style="justify-content: center; margin-top: 5rem;">
+    <input type="text" id="searchInput" class="input-card search" placeholder="buscar símbolo">
+</div>
+
+    <main class="tool-container page-content" id="main-content">
+
+        <!-- El contenedor se expande un poco más para acomodar la grilla -->
+        <div class="calculator-box entry-animator" style="max-width: 800px; width: 100%;">
+            
+
+
+            <!-- Grid de Caracteres (se llena con JS) -->
+            <div class="char-grid" id="charGrid">
+                <!-- Tarjetas dinámicas -->
+            </div>
+
         </div>
-      </div>
+    </main>
 
-      <div class="calc-group">
-        <label class="calc-label"></label>
-        <div class="input-row">
-          <div class="unit-pill">
-            <select id="unit-to" class="unit-select">
-              <option value="cm" selected>cm</option>
-              <option value="m">m</option>
-              <option value="mm">mm</option>
-              <option value="km">km</option>
-              <option value="in">in</option>
-              <option value="ft">ft</option>
-              <option value="yd">yd</option>
-            </select>
-          </div>
-          <input type="number" id="length-to" class="input-card input-large" placeholder="100" value="100" step="any">
-        </div>
-      </div>
 
-    </div>
-  </main>
-
-  <div class="bottom-menu-wrapper open" id="bottom-menu">
+<!-- Menú inferior de navegación (asegúrate de que "caracteres" tenga la clase .active) -->
+<div class="bottom-menu-wrapper open" id="bottom-menu">
     <button class="drawer-toggle" id="drawer-toggle" aria-label="Abrir menú">
       <img src="../assets/icons/arrow-menu.svg" alt="Menú" class="arrow-menu-icon">
     </button>
@@ -89,7 +67,7 @@
           </div>
           <span>área</span>
         </a>
-        <a href="longitud.html" class="tool-card active">
+        <a href="longitud.html" class="tool-card">
                     <div class="tool-icon">
             <img src="../assets//icons/longitud.svg" class="icon-default" alt="Escala">
             <img src="../assets/icons/longitud-2.svg" class="icon-active" alt="Escala Activa">
@@ -124,6 +102,7 @@
           </div>
           <span>imposición</span>
         </a>
+
                 <a href="vigas.html" class="tool-card">
                     <div class="tool-icon">
             <img src="../assets//icons/vigas.svg" class="icon-default" alt="Escala">
@@ -132,7 +111,7 @@
           <span>vigas</span>
         </a>
 
-                    <a href="caracteres.html" class="tool-card">
+            <a href="caracteres.html" class="tool-card active">
             <div class="tool-icon">
             <img src="../assets//icons/caracteres.svg" class="icon-default" alt="Escala">
             <img src="../assets/icons/caracteres-2.svg" class="icon-active" alt="Escala Activa">
@@ -143,7 +122,8 @@
     </nav>
   </div>
 
-  <script src="../js/longitud.js"></script>
-  <script src="../js/tool.js"></script>
+<script src="../js/tool.js"></script>
+<script src="../js/caracteres.js"></script>
+
 </body>
 </html>
