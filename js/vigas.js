@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  // ==========================================
-  // BASE DE DATOS CHILENA (Materiales y Perfiles)
+// ==========================================
+  // BASE DE DATOS AMPLIADA (Materiales y Perfiles)
   // Unidades: kgf, cm, cm², cm³, cm⁴, kg/m³
   // ==========================================
   const DATABASE = {
@@ -16,14 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
     concrete: {
       density: 2400,
       grades: [
-        { id: "H20", name: "Hormigón H-20 (Ref.)", f_adm: 150, E: 200000 },
-        { id: "H25", name: "Hormigón H-25 (Ref.)", f_adm: 200, E: 250000 }
+        // Normativa NCh 170 (Resistencia a compresión f'c en kgf/cm²)
+        // Esfuerzo admisible a flexión estimado (~0.45 f'c) y Módulo E (15100 * sqrt(f'c))
+        { id: "H15", name: "Hormigón H-15 (G15)", f_adm: 67.5, E: 185000 },
+        { id: "H20", name: "Hormigón H-20 (G20)", f_adm: 90.0, E: 213000 },
+        { id: "H25", name: "Hormigón H-25 (G25)", f_adm: 112.5, E: 238000 },
+        { id: "H30", name: "Hormigón H-30 (G30)", f_adm: 135.0, E: 261000 },
+        { id: "H35", name: "Hormigón H-35 (G35)", f_adm: 157.5, E: 282000 },
+        { id: "H40", name: "Hormigón H-40 (G40)", f_adm: 180.0, E: 302000 }
       ]
     },
     steel: {
       density: 7850,
-      E: 2000000,
-      f_adm: 1500, // Basado en 0.6 * Fy para A36
+      E: 2040000,
+      // Tensión admisible estándar basada en 0.6 * Fy (A36 = 1500 kgf/cm², A572 Gr50 = 2100 kgf/cm²)
+      f_adm: 1500, 
       families: {
         costanera: {
           name: "Perfil Costanera C (Cintac/VH)",
@@ -31,21 +38,47 @@ document.addEventListener("DOMContentLoaded", () => {
             { id: "c100x50x2", name: "100 x 50 x 15 x 2.0 mm", A: 4.19, I: 66.8, W: 13.3 },
             { id: "c100x50x3", name: "100 x 50 x 15 x 3.0 mm", A: 6.06, I: 93.3, W: 18.6 },
             { id: "c150x50x2", name: "150 x 50 x 15 x 2.0 mm", A: 5.19, I: 180.0, W: 24.0 },
-            { id: "c150x50x3", name: "150 x 50 x 15 x 3.0 mm", A: 7.56, I: 250.0, W: 33.3 }
+            { id: "c150x50x3", name: "150 x 50 x 15 x 3.0 mm", A: 7.56, I: 250.0, W: 33.3 },
+            { id: "c200x50x3", name: "200 x 50 x 15 x 3.0 mm", A: 9.06, I: 508.0, W: 50.8 }
           ]
         },
         tubular_rect: {
-          name: "Tubo Rectangular",
+          name: "Tubo Rectangular (Estructural)",
           profiles: [
+            { id: "tr80x40x2", name: "80 x 40 x 2.0 mm", A: 4.54, I: 41.2, W: 10.3 },
             { id: "tr100x50x2", name: "100 x 50 x 2.0 mm", A: 5.74, I: 76.5, W: 15.3 },
-            { id: "tr100x50x3", name: "100 x 50 x 3.0 mm", A: 8.44, I: 107.0, W: 21.4 }
+            { id: "tr100x50x3", name: "100 x 50 x 3.0 mm", A: 8.44, I: 107.0, W: 21.4 },
+            { id: "tr150x50x3", name: "150 x 50 x 3.0 mm", A: 10.84, I: 320.0, W: 42.6 },
+            { id: "tr200x100x4", name: "200 x 100 x 4.0 mm", A: 22.40, I: 1340.0, W: 134.0 }
+          ]
+        },
+        tubular_cuad: {
+          name: "Tubo Cuadrado (Estructural)",
+          profiles: [
+            { id: "tc50x50x2", name: "50 x 50 x 2.0 mm", A: 3.74, I: 14.1, W: 5.64 },
+            { id: "tc75x75x3", name: "75 x 75 x 3.0 mm", A: 8.14, I: 68.3, W: 18.2 },
+            { id: "tc100x100x3", name: "100 x 100 x 3.0 mm", A: 11.44, I: 175.0, W: 35.0 },
+            { id: "tc150x150x4", name: "150 x 150 x 4.0 mm", A: 22.40, I: 785.0, W: 104.7 }
           ]
         },
         ipe: {
-          name: "Perfil IPE",
+          name: "Perfil IPE (Norma Europea)",
           profiles: [
+            { id: "ipe80", name: "IPE 80", A: 7.64, I: 80.1, W: 20.0 },
             { id: "ipe100", name: "IPE 100", A: 10.3, I: 171.0, W: 34.2 },
-            { id: "ipe140", name: "IPE 140", A: 16.4, I: 541.0, W: 77.3 }
+            { id: "ipe120", name: "IPE 120", A: 13.2, I: 318.0, W: 53.0 },
+            { id: "ipe140", name: "IPE 140", A: 16.4, I: 541.0, W: 77.3 },
+            { id: "ipe160", name: "IPE 160", A: 20.1, I: 869.0, W: 109.0 },
+            { id: "ipe200", name: "IPE 200", A: 28.5, I: 1943.0, W: 194.0 }
+          ]
+        },
+        hea: {
+          name: "Perfil HEA (Alas Anchas)",
+          profiles: [
+            { id: "hea100", name: "HEA 100", A: 21.2, I: 349.0, W: 72.8 },
+            { id: "hea120", name: "HEA 120", A: 25.3, I: 606.0, W: 106.0 },
+            { id: "hea140", name: "HEA 140", A: 31.4, I: 1033.0, W: 155.0 },
+            { id: "hea160", name: "HEA 160", A: 38.8, I: 1673.0, W: 220.0 }
           ]
         }
       }
