@@ -308,7 +308,7 @@ margin: 0 .4rem 0 0;
 
 /* Contenedor del Menú Desplegable */
 .tools-drawer {
-  width: calc(100% - 2rem); /* Ajuste clave: 100% menos 20px de cada lado */
+  width: calc(auto - 2rem); /* Ajuste clave: 100% menos 20px de cada lado */
   margin: 0 1rem 1rem 1rem; /* Aplica el margen a los lados y abajo */
   border-radius: .6rem; /* Redondeamos todas las esquinas ya que ahora el menú "flota" */
   max-height: 0;
