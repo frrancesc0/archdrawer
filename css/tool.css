@@ -3,10 +3,10 @@
    ========================================== */
 :root {
   /* 1. Paleta de Colores (Fondos) */
-  --bg-gradient-1: #151b27;
-  --bg-gradient-1-1: #090a16;
-  --bg-gradient-2: #05060e;
-  --bg-gradient-3: #0c040e;
+  --bg-gradient-1: #292929;
+  --bg-gradient-1-1: #242424;
+  --bg-gradient-2: #1a1a1a;
+  --bg-gradient-3: #131313;
   --bg-scrollbar-1: #101010;
   --bg-scrollbar-2: #171717;
   --bg-panel: #1b1c1c;
@@ -47,7 +47,7 @@ body {
   box-sizing: border-box;
   padding: 2.5rem 2.5rem 0 2.5rem;
   overflow-x: hidden;
-  background: radial-gradient(circle at top left, var(--bg-gradient-1), var(--bg-gradient-1-1), var(--bg-gradient-2), var(--bg-gradient-2), var(--bg-gradient-3));
+  background: radial-gradient(circle at bottom, var(--bg-gradient-1), var(--bg-gradient-1-1), var(--bg-gradient-2), var(--bg-gradient-3));
 }
 
 body::before {
@@ -64,7 +64,7 @@ body::before {
   background-repeat: repeat;
 
 /* EL TRUCO PARA FONDOS OSCUROS: */
-  mix-blend-mode: screen; /* Ilumina el fondo oscuro */
+  mix-blend-mode: difference; /* Ilumina el fondo oscuro */
   opacity: 0.15; /* Opacidad alta para probar que funciona */  
 }
 

@@ -15,7 +15,7 @@ body {
   /* Fondo de 2 capas: 
      1. Textura granulada con opacidad sutil
      2. Gradiente radial oscuro original */
-  background:radial-gradient(circle at top center, #637a8d , #304463, #1c1e33, #0e0211);
+  background:radial-gradient(circle at bottom, #373737 , #272727, #1a1a1a, #131313);
 }
 
 body::before {
@@ -32,8 +32,9 @@ body::before {
   background-repeat: repeat;
 
 /* EL TRUCO PARA FONDOS OSCUROS: */
-  mix-blend-mode:difference; /* Ilumina el fondo oscuro */
+  mix-blend-mode: difference; /* Ilumina el fondo oscuro */
   opacity: 0.15; /* Opacidad alta para probar que funciona */  
+  
 }
 
 
