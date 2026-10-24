@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sigSize = document.getElementById('sigSize');
   const sigGroup = document.getElementById('sigGroup');
   
-  // NUEVOS ELEMENTOS: Modo de Impresión Simplex/Duplex
+  // Modo de Impresión Simplex/Duplex
   const printMode = document.getElementById('printMode');
   const simplexOptions = document.getElementById('simplexOptions');
   const reverseBackPages = document.getElementById('reverseBackPages');
@@ -60,44 +60,77 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Mostrar / ocultar inputs de tamaño personalizado
-  outputSize.addEventListener('change', () => {
-    if (outputSize.value === 'CUSTOM') {
-      customDimensionsGroup.style.display = 'block';
-    } else {
-      customDimensionsGroup.style.display = 'none';
-    }
-  });
+  if (outputSize) {
+    outputSize.addEventListener('change', () => {
+      if (customDimensionsGroup) {
+        customDimensionsGroup.style.display = outputSize.value === 'CUSTOM' ? 'block' : 'none';
+      }
+    });
+  }
 
   bookletType.addEventListener('change', () => {
-    sigGroup.style.display = bookletType.value === 'perfect' ? 'block' : 'none';
+    if (sigGroup) {
+      sigGroup.style.display = bookletType.value === 'perfect' ? 'block' : 'none';
+    }
     actualizarVista();
   });
 
-  sigSize.addEventListener('change', actualizarVista);
+  if (sigSize) {
+    sigSize.addEventListener('change', actualizarVista);
+  }
 
-  // NUEVO: Mostrar / ocultar opciones simplex
-  printMode.addEventListener('change', () => {
-    simplexOptions.style.display = printMode.value === 'simplex' ? 'block' : 'none';
-  });
+  // Mostrar / ocultar opciones simplex
+  if (printMode) {
+    printMode.addEventListener('change', () => {
+      if (simplexOptions) {
+        simplexOptions.style.display = printMode.value === 'simplex' ? 'block' : 'none';
+      }
+    });
+  }
 
   // ASIGNACIÓN DEL BOTÓN A LA FUNCIÓN DE COMBINACIÓN REAL
   downloadBtn.onclick = generarPDFPliegosCombinados;
 
   // --- OBTENER DIMENSIONES DE SALIDA EN PUNTOS ---
   function obtenerDimensionesHoja() {
-    if (outputSize.value === 'CUSTOM') {
+    if (outputSize && outputSize.value === 'CUSTOM') {
       const mmToPoints = 2.83465;
       const widthMM = parseFloat(customWidthInput.value) || 297;
       const heightMM = parseFloat(customHeightInput.value) || 210;
       return [widthMM * mmToPoints, heightMM * mmToPoints];
     } else {
-      const rawSize = PAGE_SIZES[outputSize.value] || PAGE_SIZES.A4;
+      const selectedSize = outputSize ? outputSize.value : 'A4';
+      const rawSize = PAGE_SIZES[selectedSize] || PAGE_SIZES.A4;
       return [rawSize[0], rawSize[1]];
     }
   }
 
-  // --- ESTRUCTURA DE IMPOSICIÓN ---
+  // --- ESTRUCTURA DE IMPOSICIÓN (BOOKLET / SADDLE / PERFECT / CONSECUTIVO) ---
   function calcularEstructura(totalPaginas, tipo, tamFirma) {
+    let pliegos = [];
+
+    // --- OPCIÓN NUEVA: CONSECUTIVO (ORDEN CORRELATIVO) ---
+    if (tipo === 'consecutivo') {
+      let p = 1;
+      while (p <= totalPaginas) {
+        let frente = [
+          p <= totalPaginas ? p : null,
+          p + 1 <= totalPaginas ? p + 1 : null
+        ];
+        p += 2;
+
+        let reverso = [
+          p <= totalPaginas ? p : null,
+          p + 1 <= totalPaginas ? p + 1 : null
+        ];
+        p += 2;
+
+        pliegos.push({ frente, reverso });
+      }
+      return [pliegos]; // Retorna en un solo bloque/firma
+    }
+
+    // --- OPCIONES BOOKLET (SADDLE STITCH / PERFECT BOUND) ---
     if (tipo === 'saddle') {
       tamFirma = Math.ceil(totalPaginas / 4) * 4;
     }
@@ -110,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let fin = inicio + tamFirma - 1;
       let izq = inicio;
       let der = fin;
-      let pliegos = [];
+      let pliegosFirma = [];
 
       while (izq < der) {
         let frente = [
@@ -125,9 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         izq++; der--;
 
-        pliegos.push({ frente, reverso });
+        pliegosFirma.push({ frente, reverso });
       }
-      firmas.push(pliegos);
+      firmas.push(pliegosFirma);
     }
     return firmas;
   }
@@ -137,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!pdfDocOriginal) return;
 
     const tipo = bookletType.value;
-    const tamFirma = parseInt(sigSize.value);
+    const tamFirma = sigSize ? parseInt(sigSize.value) : 16;
     const totalPags = pdfDocOriginal.numPages;
 
     const estructura = calcularEstructura(totalPags, tipo, tamFirma);
@@ -147,7 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const firma = estructura[i];
       const sigDiv = document.createElement('div');
       sigDiv.className = 'signature-group';
-      sigDiv.innerHTML = `<div class="signature-title">Firma ${i + 1} (${firma.length * 2} pliegos / ${firma.length * 4} pág)</div>`;
+      
+      const tituloFirma = tipo === 'consecutivo' 
+        ? `Bloque Consecutivo (${firma.length} pliegos)` 
+        : `Firma ${i + 1} (${firma.length} pliegos / ${firma.length * 4} pág)`;
+        
+      sigDiv.innerHTML = `<div class="signature-title">${tituloFirma}</div>`;
 
       const grid = document.createElement('div');
       grid.className = 'sheets-grid';
@@ -224,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- GENERACIÓN DEL PDF FINAL (CON SOPORTE SIMPLEX/DUPLEX) ---
+  // --- GENERACIÓN DEL PDF FINAL (CON SOPORTE SIMPLEX/DUPLEX Y CONSECUTIVO) ---
   async function generarPDFPliegosCombinados() {
     if (!pdfBytesOriginal) return;
 
@@ -244,12 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const halfWidth = sheetWidth / 2;
 
       const tipo = bookletType.value;
-      const tamFirma = parseInt(sigSize.value);
+      const tamFirma = sigSize ? parseInt(sigSize.value) : 16;
       const estructura = calcularEstructura(totalPags, tipo, tamFirma);
-      const sizeName = outputSize.value === 'CUSTOM' ? `${customWidthInput.value}x${customHeightInput.value}mm` : outputSize.value;
+      const sizeName = outputSize && outputSize.value === 'CUSTOM' ? `${customWidthInput.value}x${customHeightInput.value}mm` : (outputSize ? outputSize.value : 'A4');
       
-      const isSimplex = printMode.value === 'simplex';
-      const invertirReversos = reverseBackPages.checked;
+      const isSimplex = printMode ? printMode.value === 'simplex' : false;
+      const invertirReversos = reverseBackPages ? reverseBackPages.checked : false;
 
       if (!isSimplex) {
         // --- MODO DÚPLEX (1 Solo archivo intercalado) ---
@@ -300,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Descargar primer archivo (Frentes)
         descargarArchivo(bytesFrontal, `01_FRONTAL_${sizeName}_${pdfInput.files[0].name}`);
 
-        // Pausa de 600ms para asegurar que el navegador permite la descarga del segundo archivo simultáneo
+        // Pausa de 600ms para asegurar la descarga del segundo archivo
         setTimeout(() => {
           descargarArchivo(bytesReverso, `02_REVERSO_${sizeName}_${pdfInput.files[0].name}`);
         }, 600);
