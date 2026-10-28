@@ -3,7 +3,7 @@
    ========================================== */
 :root {
   /* 1. Paleta de Colores (Fondos) */
-  --bg-gradient-1: #292929;
+  --bg-gradient-1: #151515;
   --bg-gradient-1-1: #242424;
   --bg-gradient-2: #1a1a1a;
   --bg-gradient-3: #131313;
@@ -47,26 +47,9 @@ body {
   box-sizing: border-box;
   padding: 2.5rem 2.5rem 0 2.5rem;
   overflow-x: hidden;
-  background: radial-gradient(circle at bottom, var(--bg-gradient-1), var(--bg-gradient-1-1), var(--bg-gradient-2), var(--bg-gradient-3));
+  background-color: var(--bg-gradient-1);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none; /* Permite hacer clic a través de la capa sin bloquear botones */
-
-/* Patrón de ruido de prueba (URL externa temporal) */
-  background-image: url("../assets/images/bg-pattern.png");
-  background-repeat: repeat;
-
-/* EL TRUCO PARA FONDOS OSCUROS: */
-  mix-blend-mode: difference; /* Ilumina el fondo oscuro */
-  opacity: 0.15; /* Opacidad alta para probar que funciona */  
-}
 
 body::-webkit-scrollbar{
   background: linear-gradient(180deg, var(--bg-scrollbar-1), var(--bg-scrollbar-2));
