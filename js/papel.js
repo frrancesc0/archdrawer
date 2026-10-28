@@ -14,10 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
       C4: [229, 324], C5: [162, 229], C6: [114, 162], C7: [81, 114], C8: [57, 81]
     },
     NORAM: {
+      "Mitad carta": [139.4, 215.9],
       Carta: [215.9, 279.4],
-      Oficio: [215.9, 330.2],
       "Doble carta": [279.4, 431.8],
-      Ejecutivo: [184.1, 266.7]
+      Oficio: [215.9, 330.2],
+      Ejecutivo: [184.1, 266.7],
     }
   };
 
