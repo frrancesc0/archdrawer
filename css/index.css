@@ -1,7 +1,7 @@
 /* Configuración General y Fondo Uniforme con Granulado Sutil */
 body {
   font-family: 'Josefin Sans', sans-serif;
-  color: #cccccc;
+  color: var(--text-secondary);
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -11,8 +11,6 @@ body {
   padding: 2.5rem 2.5rem 0 2.5rem;
   overflow-x: hidden;
   position: relative;
-  background-color: var(--bg-gradient-1);
-
 }
 
 
