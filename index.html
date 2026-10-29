@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>adrawer | panel de herramientas</title>
 
-    <link rel="prerender" href="pages/area.html">
-    <link rel="prerender" href="pages/caracteres.html">
-    <link rel="prerender" href="pages/cerchas.html">
-    <link rel="prerender" href="pages/escala.html">
-    <link rel="prerender" href="pages/imposicion.html">
-    <link rel="prerender" href="pages/longitud.html">
-    <link rel="prerender" href="pages/luminaria.html">
-    <link rel="prerender" href="pages/papel.html">
-    <link rel="prerender" href="pages/pendiente.html">
-    <link rel="prerender" href="pages/und-digitales.html">
-    <link rel="prerender" href="pages/vigas.html">
+<script type="speculationrules">
+{
+  "prefetch": [
+    {
+      "source": "document",
+      "where": {
+        "and": [
+          {"href_matches": "/*"}
+        ]
+      },
+      "prerender": "moderate"
+    }
+  ]
+}
+</script>
     
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/tool.css">
