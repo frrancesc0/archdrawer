@@ -35,6 +35,13 @@
   --fs-xs: .9rem;
 }
 
+/* Evita cualquier transición molesta durante la carga inicial si viene marcado por sessionStorage */
+body.no-transition,
+body.no-transition * {
+    transition: none !important;
+    animation: none !important;
+}
+
 /* Configuración General y Fondo Uniforme */
 body {
   font-family: 'Josefin Sans', sans-serif;
