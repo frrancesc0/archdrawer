@@ -61,13 +61,12 @@ body {
 
 /* Contenedor del panel inferior de herramientas */
 .index-menu-container {
-  width: auto;
-  margin: 0 1rem 1rem 1rem; /* Aplica el margen a los lados y abajo */
-  max-height: 0;
+  width: 100%;
+  margin: 0 1rem 0rem 1rem; /* Aplica el margen a los lados y abajo */
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
   box-sizing: border-box;
   pointer-events: auto;
   max-height: 320px;
-  padding: 1.5rem 1rem;
+  padding: 2.5rem 1rem 1.5rem 1rem; 
 }

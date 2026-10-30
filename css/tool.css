@@ -86,7 +86,7 @@ div::-webkit-scrollbar-thumb{
    ANIMACIÓN DE ENTRADA PARA LAS PÁGINAS
    ========================================== */
 .entry-animator {
-  animation: pageEntrance .4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: pageEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes pageEntrance {
@@ -253,25 +253,16 @@ margin: 0 .4rem 0 0;
   color: var(--text-primary);
 }
 
-@keyframes menuOpen {
-  0% {
-    opacity: 0;
-    transform: scale(.1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+.entry-animator-1 {
+  animation: menuOpen .4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes menuClose {
+@keyframes menuOpen {
   0% {
-    opacity: 1;
-    transform: scale(1);
+    transform: translateY(400px);
   }
   100% {
-    opacity: 0;
-    transform: scale(.1);
+    transform: translateY(0);
   }
 }
 
@@ -314,25 +305,21 @@ margin: 0 .4rem 0 0;
 
 /* Contenedor del Menú Desplegable */
 .tools-drawer {
-  width: auto;
-  margin: 0 1rem 1rem 1rem; /* Aplica el margen a los lados y abajo */
-  backdrop-filter: blur(.6rem);
-  border: 1px solid var(--bg-panel-light);
+  width: 100%;
+  margin: 0 1rem 0r 1rem; /* Aplica el margen a los lados y abajo */
+  background-color: var(--bg-dark);
   border-radius: .6rem;
   overflow: hidden;
   max-height: 0px;
   box-sizing: border-box;
   pointer-events: auto;
-  transition: .2s;
-  animation: menuClose 0.2s;
-  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+
 }
 
 .bottom-menu-wrapper.open .tools-drawer {
-  opacity: 1;
   max-height: 320px;
-  padding: 1.5rem 1rem;
-  animation: menuOpen 0.3s;
+  padding: 2.5rem 1rem 1.5rem 1rem;
 }
 
 
@@ -342,7 +329,7 @@ margin: 0 .4rem 0 0;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 1rem;
-  max-width: 1000px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
