@@ -10,12 +10,14 @@
   --bg-scrollbar-1: #101010;
   --bg-scrollbar-2: #171717;
   --bg-panel: #1b1c1c;
+  --bg-panel-1: #10101066;
   --bg-panel-light: #313131;
   --bg-drawer: rgba(31, 31, 31, 0.2);
   
   /* 2. Colores de Acento adrawer */
   --adrawer-green: #76ff89;
   --adrawer-cyan: #83ffff;
+  --adrawer-cyan-light: #83ffff42;
   --adrawer-magenta: #ff57f1;
 
   /* 3. Colores de Texto */
@@ -475,8 +477,8 @@ margin: 0 .4rem 0 0;
   flex: 1.5; 
   min-width: 400px;
   min-height: 400px;
-  background-color: rgba(27, 28, 28, 0.4); 
-  border: 1px dashed rgba(131, 255, 255, 0.3);
+  background-color: var(--bg-panel-1); 
+  border: 1px dashed var(--adrawer-cyan-light);
   border-radius: 12px;
   padding: 1.5rem;
   box-sizing: border-box;
@@ -729,9 +731,7 @@ margin: 0 .4rem 0 0;
   display: grid;
   grid-template-columns: 2fr 1.5fr 1.5fr auto;
   gap: 0.5rem;
-  background-color: var(--bg-panel);
   padding: 0.8rem;
-  border: 1px solid rgba(131, 255, 255, 0.15); /* Borde cian sutil */
   border-radius: 8px;
   align-items: center;
 }
@@ -741,6 +741,13 @@ margin: 0 .4rem 0 0;
   padding: 0.4rem;
   text-align: center;
 }
+
+.load-type-select > option {
+  background-color: var(--bg-panel-light);
+  color: var(--text-primary);
+  text-align: left;
+}
+
 
 .btn-delete-load {
   background: transparent;
@@ -753,18 +760,6 @@ margin: 0 .4rem 0 0;
 
 .btn-delete-load:hover {
   transform: scale(1.1);
-}
-
-/* Layout dinámico de cargas */
-.load-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  background-color: var(--bg-panel);
-  padding: 0.8rem;
-  border: 1px solid rgba(131, 255, 255, 0.15);
-  border-radius: 8px;
-  position: relative;
 }
 
 .load-header {
