@@ -3,7 +3,7 @@ const CACHE_NAME = 'adrawer-cache-v1';
 
 // Lista de todos los archivos estáticos que quieres precargar obligatoriamente
 const ASSETS_TO_CACHE = [
-    '/',
+    '',
     'index.html',
     'css/main.css',
     'css/tool.css',
