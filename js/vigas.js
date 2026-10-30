@@ -336,21 +336,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const def_limit_div = parseFloat(document.getElementById("deflection-limit").value) || 300;
     const def_limit = (L_m * 1000) / def_limit_div;
 
-    // Render
-    document.getElementById("res-moment").textContent = `${(maxM / 100).toFixed(2)} kgf·m`;
-    document.getElementById("res-shear").textContent = `${maxV.toFixed(2)} kgf`;
-    document.getElementById("res-tension").textContent = `${stress.toFixed(2)} kgf/cm²`;
-    document.getElementById("res-adm-tension").textContent = `${f_adm} kgf/cm²`;
-    document.getElementById("res-flecha").textContent = `${(maxY * 10).toFixed(2)} mm`;
-    document.getElementById("res-adm-flecha").textContent = `${def_limit.toFixed(2)} mm`;
 
-    const sRes = document.getElementById("status-resistencia");
-    sRes.style.color = stress <= f_adm ? "var(--adrawer-green)" : "var(--adrawer-magenta)";
-    sRes.textContent = stress <= f_adm ? "✓ SECCIÓN RESISTE" : "✕ SECCIÓN FALLA (FLEXIÓN)";
+// Renderizado de valores en pantalla
+document.getElementById("res-moment").textContent = `${(maxM / 100).toFixed(2)} kgf·m`;
+document.getElementById("res-shear").textContent = `${maxV.toFixed(2)} kgf`;
+document.getElementById("res-adm-tension").textContent = `${f_adm} kgf/cm²`;
+document.getElementById("res-adm-flecha").textContent = `${def_limit.toFixed(2)} mm`;
 
-    const sFle = document.getElementById("status-flecha");
-    sFle.style.color = (maxY*10) <= def_limit ? "var(--adrawer-green)" : "var(--adrawer-magenta)";
-    sFle.textContent = (maxY*10) <= def_limit ? "✓ CUMPLE FLECHA" : "✕ DEFORMACIÓN EXCESIVA";
+// --- VERIFICACIÓN DE RESISTENCIA ---
+const elTension = document.getElementById("res-tension");
+const sRes = document.getElementById("status-resistencia");
+
+elTension.textContent = `${stress.toFixed(2)} kgf/cm²`;
+
+if (stress <= f_adm) {
+  // Cuando cumple: texto estándar / verde
+  elTension.style.color = ""; // o "var(--adrawer-green)" / "inherit"
+  sRes.style.color = "var(--adrawer-green)";
+  sRes.textContent = "SECCIÓN RESISTE";
+} else {
+  // Cuando falla: número del esfuerzo en magenta
+  elTension.style.color = "var(--adrawer-magenta)";
+  sRes.style.color = "var(--adrawer-magenta)";
+  sRes.textContent = "SECCIÓN FALLA (FLEXIÓN)";
+}
+
+// --- VERIFICACIÓN DE DEFORMACIÓN (FLECHA) ---
+const elFlecha = document.getElementById("res-flecha");
+const sFle = document.getElementById("status-flecha");
+const flechaMM = maxY * 10;
+
+elFlecha.textContent = `${flechaMM.toFixed(2)} mm`;
+
+if (flechaMM <= def_limit) {
+  // Cuando cumple: texto estándar / verde
+  elFlecha.style.color = ""; // o "var(--adrawer-green)" / "inherit"
+  sFle.style.color = "var(--adrawer-green)";
+  sFle.textContent = "CUMPLE FLECHA";
+} else {
+  // Cuando falla: número de la flecha en magenta
+  elFlecha.style.color = "var(--adrawer-magenta)";
+  sFle.style.color = "var(--adrawer-magenta)";
+  sFle.textContent = "DEFORMACIÓN EXCESIVA";
+}
   }
 
   function getFormulas(P, a, x, L, E, I, sup) {
