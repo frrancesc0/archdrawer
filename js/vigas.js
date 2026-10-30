@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function createLoadRow() {
     const L = parseFloat(document.getElementById("beam-length").value) || 5;
     const row = document.createElement("div");
-    row.style.cssText = "background: rgba(27,28,28,0.5); padding: 0.8rem; border: 1px solid rgba(131,255,255,0.2); border-radius: 6px; display: flex; flex-direction: column; gap: 0.5rem;";
+    row.style.cssText = "background-color: var(--bg-panel-1); padding: 0.8rem; border: 1px dashed var(--adrawer-green); border-radius: 6px; display: flex; flex-direction: column; gap: 0.5rem;";
     row.className = "load-row";
 
     row.innerHTML = `
