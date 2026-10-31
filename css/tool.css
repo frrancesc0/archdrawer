@@ -52,6 +52,14 @@ body {
 }
 
 
+body.menu-open main {
+    opacity: 0.15; /* Ajusta este valor según qué tan oscuro o visible quieras que quede el fondo */
+    pointer-events: none; /* Impide que el usuario haga clic en los elementos del main mientras esté abierto */
+    transition: opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+}
+
+
 body::-webkit-scrollbar{
   background: linear-gradient(180deg, var(--bg-scrollbar-1), var(--bg-scrollbar-2));
   width: 4px;
@@ -319,9 +327,8 @@ margin: 0 .4rem 0 0;
 
 .bottom-menu-wrapper.open .tools-drawer {
   max-height: 320px;
-  padding: 2.5rem 1rem 1.5rem 1rem;
+  padding: 2.5rem 1rem 4rem 1rem;
 }
-
 
 
 /* Grid de Herramientas */
@@ -385,9 +392,10 @@ margin: 0 .4rem 0 0;
 }
 
 .tool-icon {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   transition: filter 0.2s ease;
+  filter: invert(25%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 
 /* Adaptación Móvil */
