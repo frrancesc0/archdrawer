@@ -36,8 +36,6 @@ const ASSETS_TO_CACHE = [
     '/archdrawer/assets/icons/cerchas-2.svg',
     '/archdrawer/assets/icons/escala.svg',
     '/archdrawer/assets/icons/escala-2.svg',
-    '/archdrawer/assets/icons/escaleras.svg',
-    '/archdrawer/assets/icons/escaleras-2.svg',
     '/archdrawer/assets/icons/imposicion.svg',
     '/archdrawer/assets/icons/imposicion-2.svg',
     '/archdrawer/assets/icons/longitud.svg',
