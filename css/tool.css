@@ -897,3 +897,84 @@ margin: 0 .4rem 0 0;
     border-radius: 4px;
     letter-spacing: 1px;
 }
+
+/* ==========================================
+   ESTILOS ESPECÍFICOS: REGLA DE TRES (3 COLUMNAS)
+   ========================================== */
+
+
+.r3-grid-3cols {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.r3-col {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.r3-col .calc-label {
+  padding: .5rem 0rem;
+}
+
+.r3-col.right{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.r3-col .input-row.r3{
+  padding: 0rem 0rem 2rem 0rem;
+}
+
+.r3-col.right .input-row{
+  justify-content: left;
+}
+
+.r3-col.right .input-card{
+  text-align: left;
+}
+
+input.unit-muted {
+  font-weight: 300;
+  font-size: var(--fs-label);
+  color: var(--text-muted);
+}
+
+
+.r3-col-arrows {
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 2rem;
+}
+
+.r3-arrow {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 300;
+  user-select: none;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding-bottom: .3rem;
+}
+
+.r3-result-highlight {
+  color: var(--adrawer-green) !important;
+  display: flex;
+  text-align: left;
+  gap: 0.8rem;
+  width: 100%;
+}
