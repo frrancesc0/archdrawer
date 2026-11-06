@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adrawer - regla de tres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/tool.css">
+  <link rel="icon" type="image/png" href="../assets/images/adrawer-iso-01.png">
+</head>
+<body class="menu-open">
+
+  <header class="tool-header">
+    <a href="../index.html" class="brand-link">
+      <img src="../assets/images/adrawer-iso.svg" alt="">
+      <span class="brand-highlight">regla.de.tres</span>
+    </a>
+  </header>
+
+  <main class="tool-container page-content" id="main-content">
+    <div class="calculator-box entry-animator">
+      
+      <!-- Contenedor en 3 columnas -->
+      <div class="r3-grid-3cols">
+        
+        <!-- COLUMNA 1: Valores (A y C) con título und 1 -->
+         <div class="calc-group">
+        <div class="r3-col">
+
+                <div class="input-row">
+                    <input type="text" class="input-card unit-muted input-large" placeholder="und 1">
+                </div>
+
+          <div class="input-row r3">
+            <input type="number" id="r3-a" class="input-card input-small" placeholder="A" value="100" step="any">
+          </div>
+          <div class="input-row r3">
+            <input type="number" id="r3-c" class="input-card input-small" placeholder="C" value="250" step="any">
+          </div>
+        </div>
+</div>
+        <!-- COLUMNA 2: Flechas del medio -->
+         <div class="calc-group">        
+        <div class="r3-col r3-col-arrows">
+
+                <span class="calc-label">&nbsp;</span>
+
+            <div class="input-row r3">
+                <span class="r3-arrow">________</span>
+            </div>
+                <div class="input-row r3">
+                <span class="r3-arrow">________</span>
+            </div>
+        </div>
+        </div>
+
+        <!-- COLUMNA 3: Valores (B y X) con título und 2 -->
+         <div class="calc-group">
+        <div class="r3-col right">
+            <div class="calc-group">
+                <div class="input-row">
+                    <input type="text" class="input-card unit-muted input-large" placeholder="und 2">
+                </div>
+            </div>
+          <div class="input-row r3">
+            <input type="number" id="r3-b" class="input-card input-small" placeholder="B" value="50" step="any">
+          </div>
+          <div class="input-row r3">
+            <input type="number" id="r3-x" class="input-card input-small r3-result-highlight" readonly placeholder="X">
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+      <!-- Selector de Proporcionalidad Abajo -->
+      <div class="calc-group">
+        <div class="input-row">
+          <div class="unit-pill unit-pill">
+            <select id="r3-type" class="unit-select">
+              <option value="directa" selected>directa ( c * b / a )</option>
+              <option value="inversa">inversa ( c * a / b )</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="bottom-menu-wrapper open" id="bottom-menu">
+    <button class="drawer-toggle" id="drawer-toggle" aria-label="Abrir menú">
+      <img src="../assets/icons/arrow-menu.svg" alt="Menú" class="arrow-menu-icon">
+    </button>
+
+    <nav class="tools-drawer">
+      <div class="tools-grid">
+        <a href="und-digitales.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/und-digitales.svg" class="icon-default" alt="unidades">
+            <img src="../assets/icons/und-digitales-2.svg" class="icon-active" alt="unidades activas">
+          </div>
+          <span>und. digitales</span>
+        </a>
+        <a href="escala.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/escala.svg" class="icon-default" alt="escala">
+            <img src="../assets/icons/escala-2.svg" class="icon-active" alt="escala activa">
+          </div>
+          <span>escala</span>
+        </a>
+        <a href="area.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/area.svg" class="icon-default" alt="área">
+            <img src="../assets/icons/area-2.svg" class="icon-active" alt="área activa">
+          </div>
+          <span>área</span>
+        </a>
+        <a href="longitud.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/longitud.svg" class="icon-default" alt="longitud">
+            <img src="../assets/icons/longitud-2.svg" class="icon-active" alt="longitud activa">
+          </div>
+          <span>longitud</span>
+        </a>
+        <a href="pendiente.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/pendiente.svg" class="icon-default" alt="pendiente">
+            <img src="../assets/icons/pendiente-2.svg" class="icon-active" alt="pendiente activa">
+          </div>
+          <span>pendiente</span>
+        </a>
+        <a href="luminaria.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/luminaria.svg" class="icon-default" alt="luminaria">
+            <img src="../assets/icons/luminaria-2.svg" class="icon-active" alt="luminaria activa">
+          </div>
+          <span>luminaria</span>
+        </a>
+        <a href="papel.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/papel.svg" class="icon-default" alt="papel">
+            <img src="../assets/icons/papel-2.svg" class="icon-active" alt="papel activo">
+          </div>
+          <span>papel</span>
+        </a>
+        <a href="imposicion.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/imposicion.svg" class="icon-default" alt="imposición">
+            <img src="../assets/icons/imposicion-2.svg" class="icon-active" alt="imposición activa">
+          </div>
+          <span>imposición</span>
+        </a>
+        <a href="vigas.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/vigas.svg" class="icon-default" alt="vigas">
+            <img src="../assets/icons/vigas-2.svg" class="icon-active" alt="vigas activas">
+          </div>
+          <span>vigas</span>
+        </a>
+        <a href="cerchas.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/cerchas.svg" class="icon-default" alt="cerchas">
+            <img src="../assets/icons/cerchas-2.svg" class="icon-active" alt="cerchas activas">
+          </div>
+          <span>cerchas</span>
+        </a>
+        <a href="caracteres.html" class="tool-card">
+          <div class="tool-icon">
+            <img src="../assets/icons/caracteres.svg" class="icon-default" alt="caracteres">
+            <img src="../assets/icons/caracteres-2.svg" class="icon-active" alt="caracteres activos">
+          </div>
+          <span>caracteres</span>
+        </a>
+        <a href="regla3.html" class="tool-card active">
+          <div class="tool-icon">
+            <img src="../assets/icons/regla3.svg" class="icon-default" alt="regla de tres">
+            <img src="../assets/icons/regla3-2.svg" class="icon-active" alt="regla de tres activa">
+          </div>
+          <span>regla de 3</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <script src="../js/regla3.js"></script>
+  <script src="../js/tool.js"></script>
+</body>
+</html>
