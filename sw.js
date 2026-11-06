@@ -25,6 +25,7 @@ const ASSETS_TO_CACHE = [
     '/archdrawer/js/pendiente.js',
     '/archdrawer/js/und-digitales.js',
     '/archdrawer/js/vigas.js',
+    '/archdrawer/js/regla3.js',
 
     '/archdrawer/assets/icons/home.svg',
     '/archdrawer/assets/icons/arrow-menu.svg',
@@ -50,6 +51,8 @@ const ASSETS_TO_CACHE = [
     '/archdrawer/assets/icons/und-digitales-2.svg',
     '/archdrawer/assets/icons/vigas.svg',
     '/archdrawer/assets/icons/vigas-2.svg',
+    '/archdrawer/assets/icons/regla3.svg',
+    '/archdrawer/assets/icons/regla3-2.svg',
 
     '/archdrawer/assets/images/adrawer-index.svg',
     '/archdrawer/assets/images/adrawer-iso.svg',
@@ -65,7 +68,8 @@ const ASSETS_TO_CACHE = [
     '/archdrawer/pages/papel.html',
     '/archdrawer/pages/pendiente.html',
     '/archdrawer/pages/und-digitales.html',
-    '/archdrawer/pages/vigas.html'
+    '/archdrawer/pages/vigas.html',
+    '/archdrawer/pages/regla3.html'
 ];
 
 // 1. INSTALACIÓN: Guarda los recursos críticos en la caché del navegador
