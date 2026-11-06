@@ -22,68 +22,54 @@
   </header>
 
   <main class="tool-container page-content" id="main-content">
-    <div class="calculator-box entry-animator">
+    <div class="calculator-box entry-animator r3-container">
       
       <!-- Contenedor en 3 columnas -->
       <div class="r3-grid-3cols">
         
         <!-- COLUMNA 1: Valores (A y C) con título und 1 -->
-         <div class="calc-group">
-        <div class="r3-col">
-
+        <div class="r3-col left">
+          
                 <div class="input-row">
                     <input type="text" class="input-card unit-muted input-large" placeholder="und 1">
                 </div>
-
-          <div class="input-row r3">
+          <div class="input-row">
             <input type="number" id="r3-a" class="input-card input-small" placeholder="A" value="100" step="any">
           </div>
-          <div class="input-row r3">
+          <div class="input-row">
             <input type="number" id="r3-c" class="input-card input-small" placeholder="C" value="250" step="any">
           </div>
         </div>
-</div>
+
         <!-- COLUMNA 2: Flechas del medio -->
-         <div class="calc-group">        
         <div class="r3-col r3-col-arrows">
-
-                <span class="calc-label">&nbsp;</span>
-
-            <div class="input-row r3">
-                <span class="r3-arrow">________</span>
-            </div>
-                <div class="input-row r3">
-                <span class="r3-arrow">________</span>
-            </div>
-        </div>
+          <span class="calc-label r3-col-title">&nbsp;</span>
+          <span class="r3-arrow">→</span>
+          <span class="r3-arrow">→</span>
         </div>
 
         <!-- COLUMNA 3: Valores (B y X) con título und 2 -->
-         <div class="calc-group">
         <div class="r3-col right">
-            <div class="calc-group">
-                <div class="input-row">
+                  <div class="input-row">
                     <input type="text" class="input-card unit-muted input-large" placeholder="und 2">
                 </div>
-            </div>
-          <div class="input-row r3">
+          <div class="input-row">
             <input type="number" id="r3-b" class="input-card input-small" placeholder="B" value="50" step="any">
           </div>
-          <div class="input-row r3">
+          <div class="input-row">
             <input type="number" id="r3-x" class="input-card input-small r3-result-highlight" readonly placeholder="X">
           </div>
         </div>
 
       </div>
-      </div>
 
       <!-- Selector de Proporcionalidad Abajo -->
-      <div class="calc-group">
-        <div class="input-row">
-          <div class="unit-pill unit-pill">
-            <select id="r3-type" class="unit-select">
-              <option value="directa" selected>directa ( c * b / a )</option>
-              <option value="inversa">inversa ( c * a / b )</option>
+      <div class="calc-group r3-type-wrapper">
+        <div class="input-row unit-large">
+          <div class="unit-pill unit-large">
+            <select id="r3-type" class="unit-select" style="margin-top: 3rem;">
+              <option value="directa" selected>Directa ( C x B : A )</option>
+              <option value="inversa">Inversa ( C x A : B )</option>
             </select>
           </div>
         </div>
