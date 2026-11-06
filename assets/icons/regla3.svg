@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 256 256">
+  <!-- Generator: Adobe Illustrator 29.5.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 137)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke-width: 24.59px;
+      }
+
+      .st0, .st1, .st2, .st3 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .st4 {
+        fill: #fff;
+      }
+
+      .st5 {
+        fill: #383838;
+      }
+
+      .st1 {
+        stroke-width: 14.15px;
+      }
+
+      .st6 {
+        display: none;
+      }
+
+      .st2 {
+        stroke-width: 20.01px;
+      }
+
+      .st3 {
+        stroke-width: 22.68px;
+      }
+    </style>
+  </defs>
+  <g id="Capa_2" class="st6">
+    <rect class="st5" width="256" height="256"/>
+  </g>
+  <path class="st4" d="M198.81,118.97h0Z"/>
+  <g>
+    <line class="st3" x1="235.48" y1="155.37" x2="175.51" y2="215.34"/>
+    <line class="st3" x1="175.51" y1="155.37" x2="235.48" y2="215.34"/>
+  </g>
+  <path class="st4" d="M68.09,50.83v39.65H28.44v-39.65h39.65M72.48,28.15H24.05c-10.1,0-18.29,8.19-18.29,18.29v48.42c0,10.1,8.19,18.29,18.29,18.29h48.42c10.1,0,18.29-8.19,18.29-18.29v-48.42c0-10.1-8.19-18.29-18.29-18.29h0Z"/>
+  <path class="st4" d="M68.09,165.53v39.65H28.44v-39.65h39.65M72.48,142.85H24.05c-10.1,0-18.29,8.19-18.29,18.29v48.42c0,10.1,8.19,18.29,18.29,18.29h48.42c10.1,0,18.29-8.19,18.29-18.29v-48.42c0-10.1-8.19-18.29-18.29-18.29h0Z"/>
+  <path class="st4" d="M227.87,54.97v39.65h-39.65v-39.65h39.65M232.26,32.29h-48.42c-10.1,0-18.29,8.19-18.29,18.29v48.42c0,10.1,8.19,18.29,18.29,18.29h48.42c10.1,0,18.29-8.19,18.29-18.29v-48.42c0-10.1-8.19-18.29-18.29-18.29h0Z"/>
+  <path class="st0" d="M4.77,121.34"/>
+  <line class="st2" x1="114" y1="74.79" x2="144" y2="74.79"/>
+  <line class="st1" x1="113.34" y1="185.35" x2="143.34" y2="185.35"/>
+</svg>
