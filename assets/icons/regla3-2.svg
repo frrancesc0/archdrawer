@@ -7,50 +7,40 @@
         stroke-width: 24.59px;
       }
 
-      .st0, .st1, .st2, .st3 {
+      .st0, .st1 {
         fill: none;
         stroke: #fff;
         stroke-linecap: round;
         stroke-linejoin: round;
       }
 
-      .st4 {
+      .st2 {
         fill: #fff;
       }
 
-      .st5 {
+      .st3 {
         fill: #383838;
       }
 
       .st1 {
-        stroke-width: 14.15px;
-      }
-
-      .st6 {
-        display: none;
-      }
-
-      .st2 {
-        stroke-width: 20.01px;
-      }
-
-      .st3 {
         stroke-width: 22.68px;
+      }
+
+      .st4 {
+        display: none;
       }
     </style>
   </defs>
-  <g id="Capa_2" class="st6">
-    <rect class="st5" width="256" height="256"/>
+  <g id="Capa_2" class="st4">
+    <rect class="st3" width="256" height="256"/>
   </g>
-  <path class="st4" d="M199.15,123.97h0Z"/>
+  <path class="st2" d="M204.99,118.97h0Z"/>
   <g>
-    <line class="st3" x1="235.82" y1="160.37" x2="175.85" y2="220.34"/>
-    <line class="st3" x1="175.85" y1="160.37" x2="235.82" y2="220.34"/>
+    <line class="st1" x1="227.99" y1="161.84" x2="168.02" y2="221.81"/>
+    <line class="st1" x1="168.02" y1="161.84" x2="227.99" y2="221.81"/>
   </g>
-  <rect class="st4" x="6.11" y="33.15" width="85" height="85" rx="18.29" ry="18.29"/>
-  <rect class="st4" x="6.11" y="147.85" width="85" height="85" rx="18.29" ry="18.29"/>
-  <rect class="st4" x="165.89" y="37.29" width="85" height="85" rx="18.29" ry="18.29"/>
-  <path class="st0" d="M5.11,126.34"/>
-  <line class="st2" x1="114.34" y1="79.79" x2="144.34" y2="79.79"/>
-  <line class="st1" x1="113.68" y1="190.35" x2="143.68" y2="190.35"/>
+  <path class="st0" d="M10.95,121.34"/>
+  <circle class="st2" cx="70.35" cy="191.82" r="53"/>
+  <circle class="st2" cx="70.35" cy="64.18" r="53"/>
+  <rect class="st2" x="150.95" y="17.12" width="94.11" height="94.11" rx="19.22" ry="19.22"/>
 </svg>
