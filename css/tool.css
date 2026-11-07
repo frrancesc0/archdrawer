@@ -54,6 +54,7 @@ body {
 
 body.menu-open main {
     opacity: 0.15; /* Ajusta este valor según qué tan oscuro o visible quieras que quede el fondo */
+    filter: blur(.2rem); /* Aplica un desenfoque al contenido del main */
     pointer-events: none; /* Impide que el usuario haga clic en los elementos del main mientras esté abierto */
     transition: opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
